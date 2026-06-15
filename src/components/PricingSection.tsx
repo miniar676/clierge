@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Check, MessageSquare, Phone } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { goToSection } from "@/lib/navigation";
 
 const PricingSection = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const plans = [
     {
       icon: MessageSquare,
@@ -118,6 +123,7 @@ const PricingSection = () => {
                 variant={plan.popular ? "hero" : "hero-outline"}
                 size="lg"
                 className="w-full"
+                onClick={() => goToSection(navigate, location.pathname, "contact", { plan: plan.name })}
               >
                 Get Started
               </Button>

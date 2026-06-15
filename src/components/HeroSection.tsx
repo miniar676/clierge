@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Check, MessageCircle, Phone, Sparkles } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { goToSection } from "@/lib/navigation";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const trustIndicators = [
     "Live in 48 hours",
     "WhatsApp & Phone",
@@ -32,10 +37,18 @@ const HeroSection = () => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <Button variant="hero" size="xl">
+              <Button
+                variant="hero"
+                size="xl"
+                onClick={() => goToSection(navigate, location.pathname, "contact")}
+              >
                 Get Free Demo
               </Button>
-              <Button variant="hero-outline" size="xl">
+              <Button
+                variant="hero-outline"
+                size="xl"
+                onClick={() => goToSection(navigate, location.pathname, "how-it-works")}
+              >
                 See How It Works
               </Button>
             </div>

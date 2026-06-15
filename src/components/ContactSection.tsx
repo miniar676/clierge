@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,9 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MessageCircle, Phone, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { API_BASE_URL } from "@/lib/api";
+import { useLocation } from "react-router-dom";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const location = useLocation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -18,6 +20,16 @@ const ContactSection = () => {
     services: "",
     message: "",
   });
+
+  useEffect(() => {
+    const plan = new URLSearchParams(location.search).get("plan");
+    if (plan) {
+      setFormData((prev) => ({
+        ...prev,
+        message: prev.message || `Hi, I'm interested in the ${plan} plan. Please tell me more.`,
+      }));
+    }
+  }, [location.search]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

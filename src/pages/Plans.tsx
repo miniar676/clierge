@@ -3,8 +3,12 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check, MessageSquare, Phone, Plus, Minus } from "lucide-react";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { goToSection } from "@/lib/navigation";
 
 const Pricing = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [expandedFeatures, setExpandedFeatures] = useState<Record<string, boolean>>({});
 
   const toggleFeature = (planName: string, featureIndex: number) => {
@@ -256,6 +260,7 @@ const Pricing = () => {
                     variant={plan.popular ? "hero" : "hero-outline"}
                     size="lg"
                     className="w-full"
+                    onClick={() => goToSection(navigate, location.pathname, "contact", { plan: plan.name })}
                   >
                     Subscribe Now
                   </Button>
@@ -411,7 +416,11 @@ const Pricing = () => {
             <p className="text-muted-foreground mb-8">
               For larger organizations or specific requirements, we offer tailored solutions with dedicated support and custom integrations.
             </p>
-            <Button variant="hero-outline" size="lg">
+            <Button
+              variant="hero-outline"
+              size="lg"
+              onClick={() => goToSection(navigate, location.pathname, "contact", { plan: "Enterprise / Custom Solution" })}
+            >
               Contact Sales
             </Button>
           </div>
@@ -451,7 +460,11 @@ const Pricing = () => {
             <p className="text-white/80 mb-8">
               Schedule a free demo and see how Clierge can transform your customer communication.
             </p>
-            <Button variant="secondary" size="lg">
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={() => goToSection(navigate, location.pathname, "contact")}
+            >
               Get Free Demo
             </Button>
           </div>

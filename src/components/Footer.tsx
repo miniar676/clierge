@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+import { useLocation, useNavigate } from "react-router-dom";
+import { goToSection } from "@/lib/navigation";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const footerLinks = {
     Product: ["Features", "Pricing", "Integrations", "API"],
     Company: ["About", "Blog", "Careers", "Contact"],
@@ -21,7 +25,12 @@ const Footer = () => {
             <p className="text-white/70 text-sm mb-6 max-w-xs">
               AI-powered client concierge that handles WhatsApp messages and phone calls 24/7 for service businesses.
             </p>
-            <Button variant="secondary" size="lg" className="bg-white text-trust-blue hover:bg-white/90">
+            <Button
+              variant="secondary"
+              size="lg"
+              className="bg-white text-trust-blue hover:bg-white/90"
+              onClick={() => goToSection(navigate, location.pathname, "contact")}
+            >
               Get Free Demo
             </Button>
           </div>

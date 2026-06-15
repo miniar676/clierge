@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import headerLogo from "@/assets/header-logo.png";
+import { goToSection } from "@/lib/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -87,7 +88,11 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button variant="hero" size="lg">
+            <Button
+              variant="hero"
+              size="lg"
+              onClick={() => goToSection(navigate, location.pathname, "contact")}
+            >
               Get Free Demo
             </Button>
           </div>
@@ -134,7 +139,15 @@ const Header = () => {
                   </a>
                 )
               )}
-              <Button variant="hero" size="lg" className="mt-2">
+              <Button
+                variant="hero"
+                size="lg"
+                className="mt-2"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  goToSection(navigate, location.pathname, "contact");
+                }}
+              >
                 Get Free Demo
               </Button>
             </nav>
