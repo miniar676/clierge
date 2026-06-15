@@ -70,6 +70,7 @@ const Header = () => {
                   key={link.label}
                   to={link.href}
                   className="text-sm font-medium text-muted-foreground hover:text-trust-blue transition-colors"
+                  onClick={() => link.href === "/" && window.scrollTo({ top: 0, behavior: "smooth" })}
                 >
                   {link.label}
                 </Link>
@@ -121,7 +122,10 @@ const Header = () => {
                     key={link.label}
                     to={link.href}
                     className="text-sm font-medium text-muted-foreground hover:text-trust-blue transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      if (link.href === "/") window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
                   >
                     {link.label}
                   </Link>
