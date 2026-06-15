@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { pool } from "./db.js";
+import { sendContactNotification } from "./mailer.js";
 
 const app = express();
 const port = process.env.PORT || process.env.API_PORT || 3001;
@@ -24,8 +25,12 @@ app.post("/api/contacts", async (req, res) => {
     res.status(201).json({ success: true });
   } catch (error) {
     console.error("Error saving contact:", error);
-    res.status(500).json({ error: "Failed to save contact" });
+    return res.status(500).json({ error: "Failed to save contact" });
   }
+
+  sendContactNotification({ name, business_name, email, phone, services, message, interest }).catch((error) => {
+    console.error("Error sending notification email:", error);
+  });
 });
 
 app.listen(port, () => {
