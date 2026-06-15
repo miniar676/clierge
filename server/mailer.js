@@ -3,12 +3,13 @@ import nodemailer from "nodemailer";
 const transporter =
   process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD
     ? nodemailer.createTransport({
-        service: "gmail",
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
         auth: {
           user: process.env.GMAIL_USER,
           pass: process.env.GMAIL_APP_PASSWORD,
         },
-        // Render's free tier lacks IPv6 routing; force IPv4 to avoid ENETUNREACH on smtp.gmail.com
         family: 4,
       })
     : null;
