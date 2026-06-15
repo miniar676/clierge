@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MessageCircle, Phone, Send, Loader2 } from "lucide-react";
+import { Mail, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { API_BASE_URL } from "@/lib/api";
 import { useLocation } from "react-router-dom";
@@ -107,27 +107,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-primary font-medium">Email us at</p>
-                    <p className="text-foreground font-semibold">ia.automation.solution@gmail.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-soft-blue flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-primary font-medium">WhatsApp</p>
-                    <p className="text-foreground font-semibold">+1 (234) 567-890</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-soft-blue flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-primary font-medium">Call us</p>
-                    <p className="text-foreground font-semibold">+1 (234) 567-890</p>
+                    <p className="text-foreground font-semibold">clierge.solution@gmail.com</p>
                   </div>
                 </div>
               </div>
