@@ -10,7 +10,7 @@ app.use(cors({ origin: process.env.CORS_ORIGIN || "*" }));
 app.use(express.json());
 
 app.post("/api/contacts", async (req, res) => {
-  const { name, business_name, email, phone, services, message } = req.body;
+  const { name, business_name, email, phone, services, message, interest } = req.body;
 
   if (!name || !business_name || !email) {
     return res.status(400).json({ error: "name, business_name and email are required" });
@@ -18,8 +18,8 @@ app.post("/api/contacts", async (req, res) => {
 
   try {
     await pool.query(
-      "INSERT INTO contacts (name, business_name, email, phone, services, message) VALUES (?, ?, ?, ?, ?, ?)",
-      [name, business_name, email, phone || null, services || null, message || null]
+      "INSERT INTO contacts (name, business_name, email, phone, services, message, interest) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      [name, business_name, email, phone || null, services || null, message || null, interest || null]
     );
     res.status(201).json({ success: true });
   } catch (error) {

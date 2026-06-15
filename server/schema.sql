@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS contacts (
   phone VARCHAR(50) NULL,
   services VARCHAR(255) NULL,
   message TEXT NULL,
+  interest VARCHAR(100) NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

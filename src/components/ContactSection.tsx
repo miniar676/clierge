@@ -20,10 +20,12 @@ const ContactSection = () => {
     services: "",
     message: "",
   });
+  const [interest, setInterest] = useState("Free Demo");
 
   useEffect(() => {
     const plan = new URLSearchParams(location.search).get("plan");
     if (plan) {
+      setInterest(plan);
       setFormData((prev) => ({
         ...prev,
         message: prev.message || `Hi, I'm interested in the ${plan} plan. Please tell me more.`,
@@ -46,6 +48,7 @@ const ContactSection = () => {
           phone: formData.phone || null,
           services: formData.services || null,
           message: formData.message || null,
+          interest,
         }),
       });
 
