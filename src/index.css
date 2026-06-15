@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+@import "@fontsource/dm-sans/600.css";
+@import "@fontsource/dm-sans/700.css";
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 211 64% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 211 64% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 211 64% 16%;
+
+    --primary: 217 91% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 211 64% 16%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 217 91% 97%;
+    --accent-foreground: 217 91% 53%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 53%;
+
+    --radius: 0.75rem;
+
+    /* Custom Clierge tokens */
+    --trust-blue: 211 64% 16%;
+    --soft-blue: 217 91% 97%;
+    --gradient-hero: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(217 91% 97%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%);
+    --shadow-soft: 0 4px 24px -4px hsl(217 91% 53% / 0.08);
+    --shadow-card: 0 8px 32px -8px hsl(217 91% 53% / 0.12);
+    --shadow-elevated: 0 16px 48px -12px hsl(217 91% 53% / 0.16);
+  }
+
+  .dark {
+    --background: 211 64% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 211 64% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 211 64% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 211 64% 16%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 211 64% 16%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 91% 20%;
+    --accent-foreground: 217 91% 70%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 211 64% 20%;
+    --input: 211 64% 20%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-trust-blue;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-trust-blue;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1.5 hover:shadow-elevated;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary;
+  }
+
+  .bg-glow {
+    @apply pointer-events-none absolute rounded-full blur-3xl;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-[1200px] mx-auto px-6;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+}
