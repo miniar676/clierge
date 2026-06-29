@@ -64,7 +64,7 @@ const Pricing = () => {
       features: [
         {
           title: "AI Voice Call Handling",
-          description: "Natural sounding voice AI (via Vapi) that handles inbound calls, answers questions, and routes appropriately."
+          description: "Natural sounding voice AI that handles inbound calls, answers questions, and routes appropriately."
         },
         {
           title: "Inbound Call Management",
@@ -105,7 +105,7 @@ const Pricing = () => {
         },
         {
           title: "AI Voice Call Handling",
-          description: "Natural sounding voice AI (via Vapi) that handles inbound calls, answers questions, and routes appropriately."
+          description: "Natural sounding voice AI that handles inbound calls, answers questions, and routes appropriately."
         },
         {
           title: "Inbound Call Management",
