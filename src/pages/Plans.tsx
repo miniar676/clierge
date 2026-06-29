@@ -28,23 +28,27 @@ const Pricing = () => {
       features: [
         {
           title: "WhatsApp Business Integration",
-          description: "Connect your WhatsApp Business account for seamless customer communication on the platform they already use."
+          description: "Connect your WhatsApp Business account via Twilio for seamless customer communication on the platform they already use."
         },
         {
-          title: "AI Powered Responses",
-          description: "Intelligent responses around the clock using advanced language models trained on your business data."
+          title: "AI-Powered Responses",
+          description: "Intelligent responses around the clock using a GPT-4o AI agent trained on your business data, with session memory for natural conversations."
         },
         {
-          title: "Appointment Booking",
-          description: "Automated scheduling that syncs with your calendar and confirms appointments instantly."
+          title: "Appointment Booking & Cancellations",
+          description: "Automated scheduling and cancellation handling that syncs with your calendar and confirms instantly, with duplicate-message protection."
         },
         {
-          title: "Lead Capture and Qualification",
-          description: "Automatically collect and qualify leads based on your custom criteria before routing to your team."
+          title: "Email Confirmations Sent Automatically",
+          description: "Customers receive an HTML confirmation email automatically once an appointment is booked."
         },
         {
-          title: "Custom Conversation Flows",
-          description: "Design personalized conversation paths tailored to your specific business processes."
+          title: "Google Calendar Integration",
+          description: "Reads availability and creates events directly in Google Calendar, so your real calendar always stays in sync."
+        },
+        {
+          title: "CRM-Style Data Capture",
+          description: "Every conversation and booking is logged to Google Sheets, giving you a simple, searchable record of customer activity."
         },
       ],
       channels: ["WhatsApp"],
@@ -60,23 +64,27 @@ const Pricing = () => {
       features: [
         {
           title: "AI Voice Call Handling",
-          description: "Natural sounding voice AI that handles inbound calls, answers questions, and routes appropriately."
+          description: "Natural sounding voice AI (via Vapi) that handles inbound calls, answers questions, and routes appropriately."
         },
         {
           title: "Inbound Call Management",
           description: "Never miss a call again. AI answers instantly and handles common requests autonomously."
         },
         {
-          title: "Appointment Booking",
-          description: "Automated scheduling that syncs with your calendar and confirms appointments instantly."
+          title: "Appointment Request Capture",
+          description: "Logs appointment requests to Google Sheets for your team to confirm. Does not create Google Calendar events automatically."
         },
         {
-          title: "Call Analytics and Recordings",
-          description: "Full transcriptions, sentiment analysis, and actionable insights from every conversation."
+          title: "Emergency Call Detection & Instant Alerts",
+          description: "Urgent calls are flagged automatically, triggering an immediate Telegram notification and a priority email alert to your team."
         },
         {
-          title: "CRM Integration",
-          description: "Seamless sync with popular CRM platforms to keep all customer data in one place."
+          title: "Call Transcript Analysis",
+          description: "Every call is transcribed and analyzed with AI after it ends, giving you a clear summary of what was discussed."
+        },
+        {
+          title: "Multi-Intent Routing",
+          description: "Calls are automatically classified as booking, callback request, cancellation, emergency, or general inquiry and routed to the right Google Sheets tab."
         },
       ],
       channels: ["Voice", "SMS"],
@@ -97,23 +105,31 @@ const Pricing = () => {
         },
         {
           title: "AI Voice Call Handling",
-          description: "Natural sounding voice AI that handles inbound calls, answers questions, and routes appropriately."
+          description: "Natural sounding voice AI (via Vapi) that handles inbound calls, answers questions, and routes appropriately."
         },
         {
           title: "Inbound Call Management",
           description: "Never miss a call again. AI answers instantly and handles common requests autonomously."
         },
         {
-          title: "Call Analytics and Recordings",
-          description: "Full transcriptions, sentiment analysis, and actionable insights from every conversation."
+          title: "Appointment Request Capture",
+          description: "Logs appointment requests to Google Sheets for your team to confirm. Does not create Google Calendar events automatically."
+        },
+        {
+          title: "Emergency Call Detection & Instant Alerts",
+          description: "Urgent calls are flagged automatically, triggering an immediate Telegram notification and a priority email alert to your team."
+        },
+        {
+          title: "Call Transcript Analysis",
+          description: "Every call is transcribed and analyzed with AI after it ends, giving you a clear summary of what was discussed."
+        },
+        {
+          title: "Multi-Intent Routing",
+          description: "Calls are automatically classified as booking, callback request, cancellation, emergency, or general inquiry and routed to the right Google Sheets tab."
         },
         {
           title: "Priority Support",
           description: "Dedicated support team with faster response times and direct access to technical specialists."
-        },
-        {
-          title: "CRM Integration",
-          description: "Seamless sync with popular CRM platforms to keep all customer data in one place."
         },
       ],
       channels: ["WhatsApp", "Voice", "SMS"],
@@ -149,30 +165,27 @@ const Pricing = () => {
     {
       name: "Automation",
       features: [
-        { name: "Appointment Scheduling", chat: true, voiceOnly: true, voice: true },
-        { name: "Lead Qualification", chat: true, voiceOnly: true, voice: true },
-        { name: "Follow up Reminders", chat: true, voiceOnly: true, voice: true },
-        { name: "Call Routing", chat: false, voiceOnly: true, voice: true },
-        { name: "Voicemail Transcription", chat: false, voiceOnly: true, voice: true },
+        { name: "Appointment Scheduling", chat: true, voiceOnly: false, voice: true },
+        { name: "Appointment Request Capture", chat: false, voiceOnly: true, voice: true },
+        { name: "Cancellation Handling", chat: true, voiceOnly: true, voice: true },
+        { name: "Multi-Intent Routing", chat: false, voiceOnly: true, voice: true },
+        { name: "Emergency Detection & Instant Alerts", chat: false, voiceOnly: true, voice: true },
       ]
     },
     {
       name: "Analytics and Reporting",
       features: [
         { name: "Conversation Analytics", chat: true, voiceOnly: true, voice: true },
-        { name: "Call Recordings", chat: false, voiceOnly: true, voice: true },
-        { name: "Sentiment Analysis", chat: "Basic", voiceOnly: "Advanced", voice: "Advanced" },
-        { name: "Custom Reports", chat: false, voiceOnly: true, voice: true },
+        { name: "Call Transcript Analysis", chat: false, voiceOnly: true, voice: true },
         { name: "Export Data", chat: true, voiceOnly: true, voice: true },
       ]
     },
     {
       name: "Integrations",
       features: [
-        { name: "Calendar Sync", chat: true, voiceOnly: true, voice: true },
-        { name: "CRM Integration", chat: "Basic", voiceOnly: "Full", voice: "Full" },
-        { name: "Webhook Support", chat: true, voiceOnly: true, voice: true },
-        { name: "API Access", chat: false, voiceOnly: true, voice: true },
+        { name: "Google Calendar Sync", chat: true, voiceOnly: false, voice: true },
+        { name: "Google Sheets Data Logging", chat: true, voiceOnly: true, voice: true },
+        { name: "Automatic Email Confirmations", chat: true, voiceOnly: false, voice: true },
       ]
     },
     {
