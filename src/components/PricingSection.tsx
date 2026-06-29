@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, MessageSquare, Phone } from "lucide-react";
+import { Check, MessageSquare, Phone, PhoneCall } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const PricingSection = () => {
@@ -23,6 +23,21 @@ const PricingSection = () => {
     },
     {
       icon: Phone,
+      name: "Voice Only",
+      description: "AI voice agent for inbound calls",
+      setupPrice: "$1,000",
+      monthlyPrice: "from $200",
+      features: [
+        "AI voice call handling",
+        "Inbound call management",
+        "Natural voice interactions",
+        "Appointment booking",
+        "Call analytics & recordings",
+        "CRM integration",
+      ],
+    },
+    {
+      icon: PhoneCall,
       name: "Voice + Chat",
       description: "Complete AI communication suite",
       setupPrice: "$1,200",
@@ -57,7 +72,7 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
           {plans.map((plan) => (
             <div
               key={plan.name}

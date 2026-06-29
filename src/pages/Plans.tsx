@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, MessageSquare, Phone, Plus, Minus } from "lucide-react";
+import { Check, MessageSquare, Phone, PhoneCall, Plus, Minus } from "lucide-react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { goToSection } from "@/lib/navigation";
@@ -51,6 +51,38 @@ const Pricing = () => {
     },
     {
       icon: Phone,
+      name: "Voice Only",
+      description: "AI voice agent for inbound calls. Never miss a call without needing a chat channel.",
+      setupPrice: "$1,000",
+      monthlyPrice: "$200",
+      pricingNote: "based on call volume",
+      setupNote: "+$1,000 one time setup fee",
+      features: [
+        {
+          title: "AI Voice Call Handling",
+          description: "Natural sounding voice AI that handles inbound calls, answers questions, and routes appropriately."
+        },
+        {
+          title: "Inbound Call Management",
+          description: "Never miss a call again. AI answers instantly and handles common requests autonomously."
+        },
+        {
+          title: "Appointment Booking",
+          description: "Automated scheduling that syncs with your calendar and confirms appointments instantly."
+        },
+        {
+          title: "Call Analytics and Recordings",
+          description: "Full transcriptions, sentiment analysis, and actionable insights from every conversation."
+        },
+        {
+          title: "CRM Integration",
+          description: "Seamless sync with popular CRM platforms to keep all customer data in one place."
+        },
+      ],
+      channels: ["Voice", "SMS"],
+    },
+    {
+      icon: PhoneCall,
       name: "Voice + Chat",
       description: "Complete AI communication suite. Handle calls and messages with one unified solution.",
       setupPrice: "$1,200",
@@ -98,58 +130,58 @@ const Pricing = () => {
     {
       name: "Core Features",
       features: [
-        { name: "AI Response Time", chat: "Instant", voice: "Instant" },
-        { name: "Languages Supported", chat: "10+", voice: "10+" },
-        { name: "Custom Training", chat: true, voice: true },
-        { name: "Business Hours Configuration", chat: true, voice: true },
-        { name: "Conversation History", chat: "30 days", voice: "90 days" },
+        { name: "AI Response Time", chat: "Instant", voiceOnly: "Instant", voice: "Instant" },
+        { name: "Languages Supported", chat: "10+", voiceOnly: "10+", voice: "10+" },
+        { name: "Custom Training", chat: true, voiceOnly: true, voice: true },
+        { name: "Business Hours Configuration", chat: true, voiceOnly: true, voice: true },
+        { name: "Conversation History", chat: "30 days", voiceOnly: "90 days", voice: "90 days" },
       ]
     },
     {
       name: "Communication Channels",
       features: [
-        { name: "WhatsApp Business", chat: true, voice: true },
-        { name: "Voice Calls", chat: false, voice: true },
-        { name: "SMS Messages", chat: false, voice: true },
-        { name: "Web Chat Widget", chat: true, voice: true },
+        { name: "WhatsApp Business", chat: true, voiceOnly: false, voice: true },
+        { name: "Voice Calls", chat: false, voiceOnly: true, voice: true },
+        { name: "SMS Messages", chat: false, voiceOnly: true, voice: true },
+        { name: "Web Chat Widget", chat: true, voiceOnly: false, voice: true },
       ]
     },
     {
       name: "Automation",
       features: [
-        { name: "Appointment Scheduling", chat: true, voice: true },
-        { name: "Lead Qualification", chat: true, voice: true },
-        { name: "Follow up Reminders", chat: true, voice: true },
-        { name: "Call Routing", chat: false, voice: true },
-        { name: "Voicemail Transcription", chat: false, voice: true },
+        { name: "Appointment Scheduling", chat: true, voiceOnly: true, voice: true },
+        { name: "Lead Qualification", chat: true, voiceOnly: true, voice: true },
+        { name: "Follow up Reminders", chat: true, voiceOnly: true, voice: true },
+        { name: "Call Routing", chat: false, voiceOnly: true, voice: true },
+        { name: "Voicemail Transcription", chat: false, voiceOnly: true, voice: true },
       ]
     },
     {
       name: "Analytics and Reporting",
       features: [
-        { name: "Conversation Analytics", chat: true, voice: true },
-        { name: "Call Recordings", chat: false, voice: true },
-        { name: "Sentiment Analysis", chat: "Basic", voice: "Advanced" },
-        { name: "Custom Reports", chat: false, voice: true },
-        { name: "Export Data", chat: true, voice: true },
+        { name: "Conversation Analytics", chat: true, voiceOnly: true, voice: true },
+        { name: "Call Recordings", chat: false, voiceOnly: true, voice: true },
+        { name: "Sentiment Analysis", chat: "Basic", voiceOnly: "Advanced", voice: "Advanced" },
+        { name: "Custom Reports", chat: false, voiceOnly: true, voice: true },
+        { name: "Export Data", chat: true, voiceOnly: true, voice: true },
       ]
     },
     {
       name: "Integrations",
       features: [
-        { name: "Calendar Sync", chat: true, voice: true },
-        { name: "CRM Integration", chat: "Basic", voice: "Full" },
-        { name: "Webhook Support", chat: true, voice: true },
-        { name: "API Access", chat: false, voice: true },
+        { name: "Calendar Sync", chat: true, voiceOnly: true, voice: true },
+        { name: "CRM Integration", chat: "Basic", voiceOnly: "Full", voice: "Full" },
+        { name: "Webhook Support", chat: true, voiceOnly: true, voice: true },
+        { name: "API Access", chat: false, voiceOnly: true, voice: true },
       ]
     },
     {
       name: "Support",
       features: [
-        { name: "Email Support", chat: true, voice: true },
-        { name: "Priority Support", chat: false, voice: true },
-        { name: "Dedicated Account Manager", chat: false, voice: true },
-        { name: "Onboarding Assistance", chat: true, voice: true },
+        { name: "Email Support", chat: true, voiceOnly: true, voice: true },
+        { name: "Priority Support", chat: false, voiceOnly: false, voice: true },
+        { name: "Dedicated Account Manager", chat: false, voiceOnly: false, voice: true },
+        { name: "Onboarding Assistance", chat: true, voiceOnly: true, voice: true },
       ]
     },
   ];
@@ -209,7 +241,7 @@ const Pricing = () => {
       {/* Pricing Cards */}
       <section className="py-16 bg-background">
         <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
             {plans.map((plan) => (
               <div
                 key={plan.name}
@@ -361,12 +393,15 @@ const Pricing = () => {
             Detailed Overview of Our Plans
           </h2>
           
-          <div className="max-w-4xl mx-auto bg-card rounded-2xl border border-border overflow-hidden shadow-card">
+          <div className="max-w-5xl mx-auto bg-card rounded-2xl border border-border overflow-hidden shadow-card">
             {/* Table Header */}
-            <div className="grid grid-cols-3 border-b border-border bg-muted/50">
+            <div className="grid grid-cols-4 border-b border-border bg-muted/50">
               <div className="p-4"></div>
               <div className="p-4 text-center border-x border-border">
                 <span className="font-semibold text-trust-blue">Automated Chat</span>
+              </div>
+              <div className="p-4 text-center border-r border-border">
+                <span className="font-semibold text-trust-blue">Voice Only</span>
               </div>
               <div className="p-4 text-center">
                 <span className="font-semibold text-primary">Voice + Chat</span>
@@ -377,8 +412,8 @@ const Pricing = () => {
             {comparisonCategories.map((category, catIndex) => (
               <div key={catIndex}>
                 {/* Category Header */}
-                <div className="grid grid-cols-3 bg-muted/30 border-b border-border">
-                  <div className="p-4 col-span-3">
+                <div className="grid grid-cols-4 bg-muted/30 border-b border-border">
+                  <div className="p-4 col-span-4">
                     <span className="font-semibold text-foreground">{category.name}</span>
                   </div>
                 </div>
@@ -387,13 +422,16 @@ const Pricing = () => {
                 {category.features.map((feature, featIndex) => (
                   <div
                     key={featIndex}
-                    className="grid grid-cols-3 border-b border-border last:border-b-0 hover:bg-muted/20 transition-colors"
+                    className="grid grid-cols-4 border-b border-border last:border-b-0 hover:bg-muted/20 transition-colors"
                   >
                     <div className="p-4 text-sm text-muted-foreground">
                       {feature.name}
                     </div>
                     <div className="p-4 text-center text-sm border-x border-border">
                       {renderFeatureValue(feature.chat)}
+                    </div>
+                    <div className="p-4 text-center text-sm border-r border-border">
+                      {renderFeatureValue(feature.voiceOnly)}
                     </div>
                     <div className="p-4 text-center text-sm">
                       {renderFeatureValue(feature.voice)}
